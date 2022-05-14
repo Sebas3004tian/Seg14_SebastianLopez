@@ -38,24 +38,10 @@ public class MainWindow implements Initializable {
 		 try {
 			deserializar();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 
-		/*for(int i=0;i<ejeXFILE.size();i++) {
-			System.out.println(ejeXFILE.get(i)+"-"+ejeYFILE.get(i));
-		}*/
-		 
 		paint();
-		
-		
 	}
-    
-    
-    
-    
-    
-
 	public void paint() {
        gc.setFill(Color.rgb(240,240,240));
        gc.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
@@ -87,11 +73,6 @@ public class MainWindow implements Initializable {
         	   x+=50; 
     	   }
        }
-       /*System.out.println(y+"-"+x);
-       
-       System.out.println(canvas.getHeight()/y);
-       System.out.println(canvas.getWidth()/x);*/
-       
        double converX=canvas.getWidth()/x;
        double converY=canvas.getHeight()/y;
        
@@ -135,44 +116,6 @@ public class MainWindow implements Initializable {
     	       gc.lineTo(ejeX.get(i+1), ejeY.get(i+1));
        }
        gc.stroke();
-       
-       //gc.fillOval(100, (y-PUNTO EN Y)*(canvas.getHeight()/y), 10, 10);
-       
-       //gc.fillOval((PUNTO EN X)*(canvas.getWidth()/x), 100, 10, 10);
-       
-       
-       /*double deltaPx = canvas.getWidth();
-       double deltaDias = maxX-minX;
-       
-       double pendienteX=deltaPx/deltaDias;
-       
-       double intercepto = pendienteX * minX *(-1);
-       
-       double deltaPy = -canvas.getHeight();
-       double deltaAccidentes = maxY-minY;
-       
-       double pendienteY = deltaPy/deltaAccidentes;
-       double interceptoY = pendienteY* maxY*(-1);
-       
-       System.out.println(minX + " "+maxX+" "+minY+" "+maxY);
-       
-       
-       gc.setFill(Color.BLUE);
-       for(int i=0;i<ejeXFILE.size();i++) {
-    	   gc.fillOval(conversion(ejeXFILE.get(i),pendienteX,intercepto), conversion(ejeYFILE.get(i),pendienteY,interceptoY)-3, 6, 6);
-       }
-       
-       
-       
-       
-       gc.setStroke(Color.BLUE);
-       gc.setLineWidth(2);
-       for(int i=0;i<ejeXFILE.size()-1;i++) {
-      // gc.setLineWidth(2);
-       gc.moveTo(conversion(ejeXFILE.get(i),pendienteX,intercepto)+3, conversion(ejeYFILE.get(i),pendienteY,interceptoY)+3);
-       gc.lineTo(conversion(ejeXFILE.get(i+1),pendienteX,intercepto)+3, conversion(ejeYFILE.get(i+1),pendienteY,interceptoY)+3);
-       }
-       gc.stroke();*/
 	}
 
 	public double[] getMinMax(ArrayList<Double>eje) {
@@ -181,14 +124,8 @@ public class MainWindow implements Initializable {
 		Collections.sort(aux);
 		double min = aux.get(0);
 		double max = aux.get(aux.size()-1);
-		//System.out.println(min+"------"+max);
 		return new double [] {min,max};
 	}
-	/*
-	private double conversion(double x,double m,double b) {
-	   return m*x+b;	
-	}*/
-	
 	public void deserializar() throws IOException {
 		String path = "../Seg14_SebastianLopez/src/means/data.csv";
 		
